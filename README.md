@@ -1,6 +1,6 @@
-# Pomodoro-App
+# Pomodoro-React-App
 
-Pomodoro-clock 
+Pomodoro-clock using React
 
 ## Table of Contents
 
