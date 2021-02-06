@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# Pomodoro-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pomodoro-clock 
 
-## Available Scripts
+## Table of Contents
 
 In the project directory, you can run:
 
