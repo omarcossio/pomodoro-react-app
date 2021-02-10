@@ -8,7 +8,7 @@ const Session = (props) => {
         incrementByOneMin,
     } = props;
 
-    const timeToMins = moment.duration(sessionLength, 's').minutes();
+    const timeToMins = moment.duration(sessionLength, 's').asMinutes();
 
     return(
         <div className="container text-center">

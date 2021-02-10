@@ -9,7 +9,7 @@ const Break = (props) => {
         incrementBreakByOneMin,
     } = props;
 
-    const timeToMins = moment.duration(breakLength, 's').minutes();
+    const timeToMins = moment.duration(breakLength, 's').asMinutes();
 
     return (
         <div className="container text-center">

@@ -20,15 +20,17 @@ function App() {
   const decrementBreakByOneMin = () => {
     const newBreakLength = breakLength - 60;
 
-    if (newBreakLength < 0) {
-      setBreakLength(0);
-    } else {
-      setBreakLength(newBreakLength);
+    if(newBreakLength > 0) {
+      setBreakLength(newBreakLength)
     }
   };
 
   const incrementBreakByOneMin = () => {
-    setBreakLength(breakLength + 60);
+    const newBreakLength = breakLength + 60
+    if(newBreakLength <= 60 * 60) {
+      
+      setBreakLength(newBreakLength);
+    }
   };
 
   const isStarted = intervalId !== null;
@@ -47,7 +49,7 @@ function App() {
         setTimeLeft(prevTimeLeft => {
           const newTimeLeft = prevTimeLeft - 1;
           if (newTimeLeft >= 0) {
-            return prevTimeLeft - 1
+            return newTimeLeft;
           }
           //timeLeft is less than 0
           audioElement.current.play()
@@ -64,7 +66,7 @@ function App() {
             //switch to session
             setCurrentSessionType('Session')
             //setTimeLeft to sessionLength
-            setTimeLeft(sessionLength);
+            return sessionLength;
           }
         });
       }, 1000);
@@ -76,15 +78,17 @@ function App() {
   const decrementByOneMin = () => {
     const newSessionLength = sessionLength - 60;
 
-    if (newSessionLength < 0) {
-      setSessionLength(0);
-    } else {
+    if (newSessionLength > 0) {
       setSessionLength(newSessionLength);
     }
   };
 
   const incrementByOneMin = () => {
-    setSessionLength(sessionLength + 60);
+    const newSessionLength = sessionLength + 60;
+    if (newSessionLength <= 60 * 60) {
+
+      setSessionLength(sessionLength + 60);
+    }
   };
 
   const handleResetButtonClick = () => {
