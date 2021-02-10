@@ -5,7 +5,8 @@ import momentDurationFormatSetup from "moment-duration-format";
 
 momentDurationFormatSetup(moment);
 
-const TimeLeft = ({ sessionLength }) => {
+const TimeLeft = ({ breakLength, sessionLength }) => {
+    const[currentSessionType, setCurrentSessionType] = useState("Session"); // 'Session' or 'Break'
     const [intervalId, setIntervalId] = useState(null)
     const [timeLeft, setTimeLeft] = useState(sessionLength);
 
@@ -32,7 +33,22 @@ setIntervalId(null);
             if (newTimeLeft >= 0) {
                 return prevTimeLeft - 1
             }
-            return prevTimeLeft
+            //return prevTimeLeft
+            //if session: 
+            if (currentSessionType === 'Session') {
+                //switch to break
+                setCurrentSessionType('Break')
+                //setTimeleft to breakSessionLength
+                setTimeLeft(breakLength)
+            }
+
+            //if break:
+            else if(currentSessionType === 'Break') {
+                //switch to session
+                setCurrentSessionType('Session')
+                //setTimeLeft to sessionLength
+                setTimeLeft(sessionLength);
+            }
         });
     }, 1000);
     setIntervalId(newIntervalId);
@@ -43,7 +59,8 @@ setIntervalId(null);
     return(
         //MM:SS
         <div>
-            {formattedTimeLeft}
+    <p id="timer-label">{currentSessionType}</p>
+    <p id="time-left">{formattedTimeLeft}</p>       
             <button onClick={handleStartStopClick}>{isStarted ? "Stop" : "Start"}</button>
         </div>
     );
