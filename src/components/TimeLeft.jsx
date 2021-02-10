@@ -21,6 +21,7 @@ if (isStarted) {
     //stop timer
     //clearInterval
 clearInterval(intervalId)
+setIntervalId(null);
 } else {
     // if we are in stopped mode:
         //decrement timeLeft by one second 
