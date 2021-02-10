@@ -116,10 +116,8 @@ function App() {
               incrementBreakByOneMin={incrementBreakByOneMin}
             />
             <TimeLeft
-              breakLength={breakLength}
               handleStartStopClick={handleStartStopClick}
               timerLabel={currentSessionType}
-              sessionLength={sessionLength}
               startStopButtonLabel={isStarted ? 'Stop' : 'Start'}
               timeLeft={timeLeft}
             />
