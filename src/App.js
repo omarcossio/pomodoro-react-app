@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import './assets/main.css';
 import Break from "./components/Break";
 import Header from "./components/Header";
 import Session from "./components/Session";
@@ -109,16 +110,16 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="flex flex-col h-screen items center justify-center">
       <div className="container">
         <Header />
-        <div className="row">
-          <div className="col-4">
+          <div className="flex w-full justify-around">
             <Break
               breakLength={breakLength}
               decrementBreakByOneMin={decrementBreakByOneMin}
               incrementBreakByOneMin={incrementBreakByOneMin}
             />
+
             <TimeLeft
               handleStartStopClick={handleStartStopClick}
               timerLabel={currentSessionType}
@@ -136,12 +137,11 @@ function App() {
             </audio>
           </div>
         </div>
-        <div className="row mt-4">
-          <div className="col-4">
+        <div className="">
+          <div className="">
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
